@@ -30,15 +30,11 @@ public class Cliente {
             diploma = universidad.EmitirDiploma("1140506", "Walter Jhamil", "Segovia", "Arellano", "11-02-1996", Carrera.CienciasComputacion);
 
             // Validar si se obtuvo un diploma válido
-            if (diploma != null) {
-                if (diploma.getMensaje().isEmpty()) {
-                    System.out.println("Diploma emitido con exito:");
-                    System.out.println(diploma);
-                } else {
-                    System.out.println("❌ " + diploma.getMensaje());
-                }
+            if (diploma.getMensaje().isEmpty()) {
+                System.out.println("✅ Diploma emitido con éxito:");
+                System.out.println(diploma.toString());
             } else {
-                System.out.println("❌ Error: No se pudo obtener el diploma.");
+                System.out.println("❌ " + diploma.getMensaje());
             }
 
         } catch (NotBoundException ex) {

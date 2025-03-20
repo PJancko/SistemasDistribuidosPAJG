@@ -141,7 +141,7 @@ public class Universidad extends UnicastRemoteObject implements IUniversidad {
 
         // Si todas las verificaciones pasaron, se emite el diploma
         if (emitir) {
-            diplomaAux = new Diploma(ci, carrera, rude, "Diploma emitido con éxito");
+            diplomaAux = new Diploma(ci, carrera, rude, "");
         } else {
             return new Diploma("", null, "", "No se pudo emitir el diploma");
         }
