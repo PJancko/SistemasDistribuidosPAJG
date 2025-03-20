@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author janck
  */
-class Diploma implements Serializable {
+public class Diploma implements Serializable {
     
     String nombrecompleto;
     Carrera carrera;

@@ -17,23 +17,28 @@ import java.util.logging.Logger;
  * @author janck
  */
 public class ServidorSegip {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         try {
+            // Iniciar el registro RMI en el puerto 1099 si no está corriendo
+            try {
+                LocateRegistry.createRegistry(1099);
+                System.out.println("Registro RMI iniciado en el puerto 1099...");
+            } catch (RemoteException e) {
+                System.out.println("El registro RMI ya está en ejecución.");
+            }
+
+            // Crear la instancia del objeto Segip
             Segip segip = new Segip();
-            LocateRegistry.createRegistry(1099);
-            Naming.bind("Segip", segip);
-            
-            
-            
-            
-            
-            
-        } catch (RemoteException ex) {
-            Logger.getLogger(ServidorSegip.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (AlreadyBoundException ex) {
-            Logger.getLogger(ServidorSegip.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(ServidorSegip.class.getName()).log(Level.SEVERE, null, ex);
+
+            // Registrar el objeto RMI
+            Naming.rebind("rmi://localhost/Segip", segip);
+
+            System.out.println("✅ Servidor Segip está listo...");
+        } catch (Exception e) {
+            System.err.println("❌ Error en el servidor RMI: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
+

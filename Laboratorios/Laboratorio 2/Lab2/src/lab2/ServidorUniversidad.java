@@ -19,18 +19,16 @@ import java.rmi.registry.LocateRegistry;
 public class ServidorUniversidad {
     public static void main(String[] args){
         try {
+            // Crear la instancia del objeto Segip
             Universidad universidad = new Universidad();
-            LocateRegistry.createRegistry(1099);
-            Naming.bind("Universidad", universidad);
-            
-            
-            
-        } catch (RemoteException ex) {
-            Logger.getLogger(ServidorUniversidad.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (AlreadyBoundException ex) {
-            Logger.getLogger(ServidorUniversidad.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(ServidorUniversidad.class.getName()).log(Level.SEVERE, null, ex);
+
+            // Registrar el objeto RMI
+            Naming.rebind("rmi://localhost/Universidad", universidad);
+
+            System.out.println("Servidor Universidad está listo...");
+        } catch (Exception e) {
+            System.err.println("Error en el servidor RMI: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

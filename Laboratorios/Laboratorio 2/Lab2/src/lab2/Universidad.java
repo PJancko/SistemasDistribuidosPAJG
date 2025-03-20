@@ -33,29 +33,35 @@ public class Universidad extends UnicastRemoteObject implements IUniversidad {
 
     @Override
     public Diploma EmitirDiploma(String ci, String nombres, String primerApellido, String segundoApellido, String fecha_nacimiento, Carrera carrera) throws RemoteException {
-        
+
         Diploma diplomaAux = null;
         boolean emitir = false;
-        String rude = nombres.substring(0, 2) + primerApellido.substring(0, 2) + segundoApellido.substring(0, 2) + fecha_nacimiento;
-        
-        
-        
+        String fechaSinGuiones = fecha_nacimiento.replace("-", "");
+        String rude = nombres.substring(0, 2) + primerApellido.substring(0, 2) + segundoApellido.substring(0, 2) + fechaSinGuiones;
+        boolean datosCorrectos = false;
+
         //Llamar a Segip(codigo del cliente RMI)
         try {
-            
+
             ISegip segip;
             segip = (ISegip) Naming.lookup("rmi://localhost/Segip");
 
-        } catch (NotBoundException ex) {
-            Logger.getLogger(Universidad.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Universidad.class.getName()).log(Level.SEVERE, null, ex);
+            Respuesta respuestaSegip = segip.Verificar(ci, nombres, primerApellido, segundoApellido);
+
+            // Comprobar si los datos son correctos o no
+            if (!respuestaSegip.isEstado()) {
+                return new Diploma("", null, "", "Los Datos del CI no son correctos");
+            } else {
+                System.out.println("SEGIP: " + respuestaSegip.getMensaje());
+                datosCorrectos = true;
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error al conectar con SEGIP: " + e.getMessage());
         }
 
-        
-        
-        
         //Llamar a Seduca(codigo del cliente TCP)
+        boolean esBachiller = false;
         try {
             int port = 5002;
             Socket client;
@@ -65,53 +71,82 @@ public class Universidad extends UnicastRemoteObject implements IUniversidad {
                     new InputStreamReader(client.getInputStream()));
             toServer.println("verificar-" + rude);
             String result = fromServer.readLine();
+
+            System.out.println("Respuesta de seduca: " + result);
+
+            // Procesar la respuesta
+            String[] respuesta = result.split(":");
+            if (respuesta.length >= 3 && respuesta[1].equals("si")) {
+                esBachiller = true;
+            } else {
+                esBachiller = false;
+            }
+            String mensajeSeduca = respuesta.length >= 3 ? respuesta[2] : "Error en la respuesta de Seduca";
+
+            if (esBachiller) {
+                System.out.println("Bachiller verificado: " + mensajeSeduca);
+            } else {
+                System.out.println("No es bachiller: " + mensajeSeduca);
+                return new Diploma("", null, "", mensajeSeduca);
+            }
+
         } catch (IOException ex) {
             Logger.getLogger(Universidad.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
-        
-        
-        //Llamar a Sereci(codigo del cliente UDP)
+        // Llamar a Sereci (código del cliente UDP)
         int puerto = 6789;
-        String dato = "";
-        while (true) {
-            try {
+        String dato = "Ver-fecha:" + nombres + "," + primerApellido + " " + segundoApellido + "," + fecha_nacimiento;
+        boolean fechaCorrecta = false;
 
-                String ip = "localhost";
+        try {
+            String ip = "localhost";
+            DatagramSocket socketUDP = new DatagramSocket();
+            byte[] mensaje = dato.getBytes();
+            InetAddress hostServidor = InetAddress.getByName(ip);
 
-                DatagramSocket socketUDP = new DatagramSocket();
-                byte[] mensaje = dato.getBytes();
-                InetAddress hostServidor = InetAddress.getByName(ip);
+            // Construimos un datagrama para enviar el mensaje al servidor
+            DatagramPacket peticion = new DatagramPacket(mensaje, mensaje.length, hostServidor, puerto);
 
-                // Construimos un datagrama para enviar el mensaje al servidor
-                DatagramPacket peticion
-                        = new DatagramPacket(mensaje, dato.length(), hostServidor,
-                                puerto);
+            // Enviamos el datagrama
+            socketUDP.send(peticion);
 
-                // Enviamos el datagrama
-                socketUDP.send(peticion);
+            // Construimos el DatagramPacket que contendrá la respuesta
+            byte[] buffer = new byte[1000];
+            DatagramPacket respuesta = new DatagramPacket(buffer, buffer.length);
 
-                // Construimos el DatagramPacket que contendrá la respuesta
-                byte[] bufer = new byte[1000];
-                DatagramPacket respuesta
-                        = new DatagramPacket(bufer, bufer.length);
-                socketUDP.receive(respuesta);
+            // Recibimos la respuesta del servidor
+            socketUDP.receive(respuesta);
+            String resultado = new String(respuesta.getData(), 0, respuesta.getLength()).trim();
 
-                // Enviamos la respuesta del servidor a la salida estandar
-                System.out.println("Respuesta: " + new String(respuesta.getData()));
+            // Imprimimos la respuesta
+            System.out.println("Respuesta de SERECI: " + resultado);
 
-                // Cerramos el socket
-                socketUDP.close();
-
-            } catch (SocketException e) {
-                System.out.println("Socket: " + e.getMessage());
-            } catch (IOException e) {
-                System.out.println("IO: " + e.getMessage());
+            if (resultado.equals("si:verificación correcta")) {
+                fechaCorrecta = true;
+            } else {
+                return new Diploma("", null, "", "Error: fecha de nacimiento no coincide con el registro de SERECI");
             }
-            return diplomaAux;
+
+            // Cerramos el socket
+            socketUDP.close();
+
+        } catch (SocketException e) {
+            System.out.println("Socket: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("IO: " + e.getMessage());
         }
 
+        emitir = datosCorrectos && fechaCorrecta && esBachiller;
+
+        // Si todas las verificaciones pasaron, se emite el diploma
+        if (emitir) {
+            diplomaAux = new Diploma(ci, carrera, rude, "Diploma emitido con éxito");
+        } else {
+            return new Diploma("", null, "", "No se pudo emitir el diploma");
+        }
+
+        return diplomaAux;
     }
 
 }

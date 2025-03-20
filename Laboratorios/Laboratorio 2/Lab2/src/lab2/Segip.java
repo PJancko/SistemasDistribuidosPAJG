@@ -13,14 +13,19 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class Segip extends UnicastRemoteObject implements ISegip {
 
-    public Segip() throws RemoteException{
+    public Segip() throws RemoteException {
         super();
     }
 
     @Override
-    public boolean Verificar(String ci, String nombres, String apellidos) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Respuesta Verificar(String ci, String nombres, String primerApellido, String segundoApellido) throws RemoteException {
+
+        if (ci.equals("1140506")) {
+            return new Respuesta(true, "Los Datos son correctos");
+        } else {
+            return new Respuesta(false, "Los Datos del CI no son correctos");
+        }
+        
     }
-    
-    
+
 }

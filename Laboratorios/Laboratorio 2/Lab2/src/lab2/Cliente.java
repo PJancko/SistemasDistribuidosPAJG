@@ -21,17 +21,34 @@ public class Cliente {
     public static void main(String[] args) {
         IUniversidad universidad;
         Diploma diploma;
+
         try {
+            // Conectarse al servidor RMI
             universidad = (IUniversidad) Naming.lookup("rmi://localhost/Universidad");
+
+            // Llamar al método remoto para emitir el diploma
             diploma = universidad.EmitirDiploma("1140506", "Walter Jhamil", "Segovia", "Arellano", "11-02-1996", Carrera.CienciasComputacion);
-            if(diploma.getMensaje().equals("")){
-                System.out.println(diploma);
+
+            // Validar si se obtuvo un diploma válido
+            if (diploma != null) {
+                if (diploma.getMensaje().isEmpty()) {
+                    System.out.println("Diploma emitido con exito:");
+                    System.out.println(diploma);
+                } else {
+                    System.out.println("❌ " + diploma.getMensaje());
+                }
+            } else {
+                System.out.println("❌ Error: No se pudo obtener el diploma.");
             }
+
         } catch (NotBoundException ex) {
+            System.out.println("Error: No se pudo encontrar el servicio de la Universidad en el servidor RMI.");
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (MalformedURLException ex) {
+            System.out.println("Error: La URL del servidor RMI es incorrecta.");
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (RemoteException ex) {
+            System.out.println("Error: Fallo en la comunicacion con el servidor RMI.");
             Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

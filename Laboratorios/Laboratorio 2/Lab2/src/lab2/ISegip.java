@@ -12,5 +12,5 @@ import java.rmi.RemoteException;
  * @author janck
  */
 public interface ISegip extends Remote {
-    public boolean Verificar(String ci,String nombres,String apellidos) throws RemoteException;
+    public Respuesta Verificar(String ci,String nombres,String primerApellido, String segunoApellido) throws RemoteException;
 }

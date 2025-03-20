@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,12 +19,13 @@ import java.util.logging.Logger;
  * @author janck
  */
 public class ServidorSeduca {
-    public static void main(String[] args){
-            int port = 5002;
+
+    public static void main(String[] args) {
+        int port = 5002;
         ServerSocket server;
-        String rude="";
-        String mensaje="";
-        
+        String rudeRegistrado = "WaSeAr11021996";
+        String mensaje = "";
+
         try {
             server = new ServerSocket(port);
             System.out.println("Se inicio el servidor con éxito");
@@ -36,16 +38,22 @@ public class ServidorSeduca {
 
                 BufferedReader fromClient = new BufferedReader(new InputStreamReader(client.getInputStream())); // el lector
                 System.out.println("Cliente se conecto");
+                
                 String operacion = fromClient.readLine(); //'verificar-rude'
-                String[] comandos=operacion.split("-");
-                rude=comandos[1];
+                System.out.println("Mensaje enviado " + operacion);
+                
+                String[] comandos = operacion.split("-");
+                String rude = comandos[1];
                 ///logica para ver si tiene titulo de bachiler
+                if(rude.equals(rudeRegistrado)){
+                    mensaje = "si:Verificado con exito";
+                }else{
+                    mensaje = "no:No se encontro el titulo de bachiller";
+                }
                 
-                System.out.println("Mensaje enviado "+operacion);
-                
-                
+
                 toClient = new PrintStream(client.getOutputStream());
-                toClient.println("respuesta:"+mensaje);
+                toClient.println("respuesta:" + mensaje);
             }
         } catch (IOException ex) {
             System.out.print(ex.getMessage());
