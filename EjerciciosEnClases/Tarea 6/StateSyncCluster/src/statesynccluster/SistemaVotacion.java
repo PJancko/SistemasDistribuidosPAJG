@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package statesynccluster;
+
 import org.jgroups.JChannel;
 import org.jgroups.Message;
 import org.jgroups.ReceiverAdapter;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaVotacion extends ReceiverAdapter {
+
     private JChannel canal;
     private List<String> opciones = new ArrayList<>();
     private List<Integer> votos = new ArrayList<>();
@@ -51,7 +53,10 @@ public class SistemaVotacion extends ReceiverAdapter {
         String mensaje = "VOTACION:" + pregunta + ":" + String.join(",", opciones);
         canal.send(new Message(null, mensaje));
 
-        esperarVotos(lector);
+        // Solo los participantes (no el iniciador) esperan votos
+        if (!esIniciador) {
+            esperarVotos(lector);
+        }
     }
 
     private void esperarVotos(BufferedReader lector) throws Exception {
