@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B48022D-6D1B-4F86-84B2-65BCFF69E96C}|conexionBaseDatos\\conexionBaseDatos.csproj|e:\\universidad\\ciencias de la computacion\\2025-1\\sis258\\clases\\basedatos\\conexionbasedatos\\conexionbasedatos\\wspersona.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B48022D-6D1B-4F86-84B2-65BCFF69E96C}|conexionBaseDatos\\conexionBaseDatos.csproj|solutionrelative:conexionbasedatos\\wspersona.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B48022D-6D1B-4F86-84B2-65BCFF69E96C}|conexionBaseDatos\\conexionBaseDatos.csproj|E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionbasedatos\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1B48022D-6D1B-4F86-84B2-65BCFF69E96C}|conexionBaseDatos\\conexionBaseDatos.csproj|solutionrelative:conexionbasedatos\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B48022D-6D1B-4F86-84B2-65BCFF69E96C}|conexionBaseDatos\\conexionBaseDatos.csproj|E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionbasedatos\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B48022D-6D1B-4F86-84B2-65BCFF69E96C}|conexionBaseDatos\\conexionBaseDatos.csproj|solutionrelative:conexionbasedatos\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionBaseDatos\\Web.config",
+              "RelativeDocumentMoniker": "conexionBaseDatos\\Web.config",
+              "ToolTip": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionBaseDatos\\Web.config",
+              "RelativeToolTip": "conexionBaseDatos\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-04-13T23:41:45.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Persona.cs",
+              "DocumentMoniker": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionBaseDatos\\Persona.cs",
+              "RelativeDocumentMoniker": "conexionBaseDatos\\Persona.cs",
+              "ToolTip": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionBaseDatos\\Persona.cs",
+              "RelativeToolTip": "conexionBaseDatos\\Persona.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T23:40:12.302Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "wsPersona.asmx.cs",
+              "DocumentMoniker": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionBaseDatos\\wsPersona.asmx.cs",
+              "RelativeDocumentMoniker": "conexionBaseDatos\\wsPersona.asmx.cs",
+              "ToolTip": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Clases\\BaseDatos\\conexionBaseDatos\\conexionBaseDatos\\wsPersona.asmx.cs",
+              "RelativeToolTip": "conexionBaseDatos\\wsPersona.asmx.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T23:39:13.254Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
