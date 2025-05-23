@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Repositorio\\Evaluaciones\\Segundo Parcial\\servidorPagos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{14F178D1-9BFD-4545-99CF-CD01D8793264}|servidorPagos\\servidorPagos.csproj|e:\\universidad\\ciencias de la computacion\\2025-1\\sis258\\repositorio\\evaluaciones\\segundo parcial\\servidorpagos\\servidorpagos\\wsservidorpagos.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14F178D1-9BFD-4545-99CF-CD01D8793264}|servidorPagos\\servidorPagos.csproj|solutionrelative:servidorpagos\\wsservidorpagos.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14F178D1-9BFD-4545-99CF-CD01D8793264}|servidorPagos\\servidorPagos.csproj|e:\\universidad\\ciencias de la computacion\\2025-1\\sis258\\repositorio\\evaluaciones\\segundo parcial\\servidorpagos\\servidorpagos\\deuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14F178D1-9BFD-4545-99CF-CD01D8793264}|servidorPagos\\servidorPagos.csproj|solutionrelative:servidorpagos\\deuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Deuda.cs",
+              "DocumentMoniker": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Repositorio\\Evaluaciones\\Segundo Parcial\\servidorPagos\\servidorPagos\\Deuda.cs",
+              "RelativeDocumentMoniker": "servidorPagos\\Deuda.cs",
+              "ToolTip": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Repositorio\\Evaluaciones\\Segundo Parcial\\servidorPagos\\servidorPagos\\Deuda.cs",
+              "RelativeToolTip": "servidorPagos\\Deuda.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T21:22:18.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "wsServidorPagos.asmx.cs",
+              "DocumentMoniker": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Repositorio\\Evaluaciones\\Segundo Parcial\\servidorPagos\\servidorPagos\\wsServidorPagos.asmx.cs",
+              "RelativeDocumentMoniker": "servidorPagos\\wsServidorPagos.asmx.cs",
+              "ToolTip": "E:\\Universidad\\Ciencias de la computacion\\2025-1\\sis258\\Repositorio\\Evaluaciones\\Segundo Parcial\\servidorPagos\\servidorPagos\\wsServidorPagos.asmx.cs",
+              "RelativeToolTip": "servidorPagos\\wsServidorPagos.asmx.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAYwHQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T21:03:50.09Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

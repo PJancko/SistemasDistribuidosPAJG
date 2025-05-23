@@ -80,7 +80,19 @@ class PrestamoController extends Controller
             'fecha_prestamo' => 'required|date',
             'fecha_devolucion' => 'nullable|date|after_or_equal:fecha_prestamo',
             'lector_id' => 'required|integer|exists:lectors,id',
+            'libros' => 'required|array',
+            'libros.*' => 'integer|exists:libros,id',
         ]);
+
+        $prestamo->detalles()->delete();
+
+        // Crear los detalles del préstamo
+        foreach ($validated['libros'] as $libroId) {
+            DetallePrestamo::create([
+                'prestamo_id' => $prestamo->id,
+                'libro_id' => $libroId,
+            ]);
+        }
 
         // Actualizar el préstamo
         $prestamo->update($validated);

@@ -1,0 +1,29 @@
+La aplicacion cliente pagos esta realizada en c# y presenta una intrefaz que permite introducir ci, nombres, PrimerApellido,
+SegundoApellido, luego presenta un boton que dice obtener el detalle de deudas, este servicios llama al segip para verificar
+si existe el cliente y si su datos son correctos, si son correctos permite continuar con el flujo caso contrario indica el
+error.
+Una vez que el cliente tienen la lista de deudas elige una de ella y llamala empresa pertinenete donde registra el pago, pide
+1. Escribir la aplicacion cliente pagos en c#
+2. escribir el servidor pagos en c# soap
+3. escribir el servicio segip graphql con el esquema que tiene los campos(ci, nombres, PrimerApellido, SegundoApellido),
+permitir buscar por ci utilizando node.js
+4. Escribir el srvicio ssa rest utilizando laravel
+5. escribir el servicio elapas rest utilizando laravel
+
+
+
+servicio soap{
+    Deuda[] verDeuda(string ci, PrimerApellido, SegundoApellido, nombres)
+    PagarDeuda(Deuda c)
+}
+servicioGraphql{
+    recurso persona que tiene los campos(
+        ci, nombres, PrimerApellido, SegundoApellido
+    )permitir buscar por ci
+}
+servicioRestcessa{
+    resurso facturas
+}
+servicioRestelapas{
+    resurso facturas
+}
