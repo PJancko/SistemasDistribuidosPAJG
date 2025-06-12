@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "notificadorPago", "notificadorPago\notificadorPago.csproj", "{FADD3C4F-CEEE-48CF-98EB-9F851CDD840B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FADD3C4F-CEEE-48CF-98EB-9F851CDD840B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADD3C4F-CEEE-48CF-98EB-9F851CDD840B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADD3C4F-CEEE-48CF-98EB-9F851CDD840B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADD3C4F-CEEE-48CF-98EB-9F851CDD840B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4B03421-C5CC-4EDF-A4ED-AA37C6F36901}
+	EndGlobalSection
+EndGlobal

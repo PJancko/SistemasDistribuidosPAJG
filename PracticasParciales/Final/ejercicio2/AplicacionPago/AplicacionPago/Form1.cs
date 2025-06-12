@@ -3,7 +3,7 @@ namespace AplicacionPago
     public partial class Form1 : Form
     {
 
-        rsFacturas.wsPlataformaPagoSoapClient cliente = new rsFacturas.wsPlataformaPagoSoapClient(rsFacturas.wsPlataformaPagoSoapClient.EndpointConfiguration.wsPlataformaPagoSoap12);
+        rsFactura.wsNotificadorPagosSoapClient cliente = new rsFactura.wsNotificadorPagosSoapClient(rsFactura.wsNotificadorPagosSoapClient.EndpointConfiguration.wsNotificadorPagosSoap12);
 
         public Form1()
         {
@@ -37,10 +37,10 @@ namespace AplicacionPago
             try
             {
                 // Obtener la factura seleccionada
-                var factura = (rsFacturas.Factura)dvgFacturas.SelectedRows[0].DataBoundItem;
+                var factura = (rsFactura.Factura)dvgFacturas.SelectedRows[0].DataBoundItem;
 
                 // Enviar solo esa factura en un array de 1 elemento
-                string respuesta = cliente.Pagar(new rsFacturas.Factura[] { factura });
+                string respuesta = cliente.Pagar(new rsFactura.Factura[] { factura });
 
                 MessageBox.Show(respuesta);
             }
